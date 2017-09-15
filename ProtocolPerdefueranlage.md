@@ -1,24 +1,22 @@
 # Protocol
 ### Protocol Pferdefiueranlage
 
-1.) Kommunikationsmanagment  
-2.) Telegramme  
-2.1) Allgemeine Form der Telegramme  
-2.2) Funktionen  
-2.3) Beispiele von Telegrammen  
-3.) Fehler  
+## Zeitplan
+1. Kommunikationsmanagment  
+2. Telegram  
+2.1 Allgemeine Form der Telegramme  
+2.2 Funktionen  
+2.3 Beispiele von Telegrammen  
+3. Fehler  
 
+## 1. Kommunikationsmanagment  
 
-Freyler: Server  
-Pölzl: Client  
-Riegelnegg: Client  
+## 2. Telegram  
 
-// todo Bild   
-  
-Wir arbeiten über das Ethernet (WLan)
+### 2.1 Allgemeine Form der Telegramme  
 
-Wir arebiten mit einer Verbindungsorientierte Verbindung  
+### 2.2 Funktionen  
 
-Fehler:
-- Bei keiner Antwort von 100 ms wird das das Telegramm erneut versendet
-- Wenn das Telegram fehlerhaft sein sollte wird eine Response gesendet der den Sender aufvordert um das Telegram erneut zu versenden         oder Richtig zu stellen
+### 2.3 Beispiele von Telegrammen  
+
+## Fehler  
