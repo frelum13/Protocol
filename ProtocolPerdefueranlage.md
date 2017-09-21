@@ -15,6 +15,9 @@
 
 ### 2.1 Allgemeine Form der Telegramme  
 
+      ------------------------
+      |   Anweisung  | Daten | 
+      ------------------------
 ### 2.2 Funktionen  
 
 ### 2.3 Beispiele von Telegrammen  
