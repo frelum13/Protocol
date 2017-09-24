@@ -15,8 +15,10 @@
 
 ### 2.1 Allgemeine Form der Telegramme  
 
-      |--------------|-------:|
+      
       |   Anweisung  | Daten | 
+      |--------------|-------:|
+      | horse | horse|
       
 ### 2.2 Funktionen  
 
