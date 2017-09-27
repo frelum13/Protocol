@@ -1,11 +1,17 @@
 # Protocol
 ### Protocol Pferdefiueranlage
+### Version: 1.0.5
 
 ## Zeitplan
 1. Kommunikationsmanagment  
 2. Telegram  
 2.1 Allgemeine Form der Telegramme  
 2.2 Funktionen  
+2.2.1 Wasser  
+2.2.2 Neues Pferd hinzufügen  
+2.2.3 Benutzer Registrieren  
+2.2.4 Pferd löschen  
+2.2.5 Benutzer löschen  
 2.3 Beispiele von Telegrammen  
 3. Fehler  
 
@@ -34,7 +40,13 @@ Dieser String wird dann in json zusammengesetzt und versendet
 #### 2.2.1 Wasser an/aus
 | Anweisung  | Daten|
 |-------------|:-----:|
-|water| Wasser on/off |
+|water| Wasser on/off |  
+
+Antwort:
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|water| true/false |  
 
 Beispiel
 
@@ -42,21 +54,91 @@ Beispiel
 |-------------|:-----:|
 |water| on |
 
+Die Anweisung ist dafür da um die Wassersprühanlage ein oder aus zu schalten.  
 
-| new | Neues Pferd | Es wird ein neues Pferd in die Datenbank eingefügt |
-| registrate | Neuer Benutzer | Ein neuer Benutzer wird in die Datenbank eingefügt |
-| deletehorse | Pferd löschen | Um ein Pferd aus der Datenbank zu löschen |
-| deleteuser | Benutzer löschen | Um ein User aus der Datenbank zu löschen|
-| infohorse | Info Pferd | Schickt alle Datenbankeinträge über dieses Pferd an den Client|
-| infouser | Info Benutzer | Schickt alle Datenbankeinträge über diesen User an den Client|
-| updatehorse | Pferd überarbeiten | Bekommt Daten vom Client die in der Datenbank verändert werden sollen|
-| updateuser | Benutzer überarbeiten | Bekommt Daten vom Client die in der Datenbank verändert werden sollen|
-| stop | Maschiene stoppen | Stopt die Maschienen |
-| status | Abfrage ob alles passt | Es wird abgefragt ob der Server noch da ist und ob ein Fehler aufgetreten ist|
+#### 2.2.2 Neues Pferd hinzufügen
 
+| Anweisung  | Daten|
+|-------------|:-----:|
+| new | Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |
 
-### 2.3 Beispiele von Telegrammen  
+Beispiel
 
+| Anweisung  | Daten|
+|-------------|:-----:|
+| new | Franz + 500 + 4 |  
+
+Es ist dafür da um einen neues Pferd in die Datenbank zu schreiben
+
+#### 2.2.3 Benutzer Registrieren
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| registrate | Vorname + Nachname + Benutzername + Passwort |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| registrate | Franz + 500 + 4 |
+
+Es ist dafür da um einen neuen Beutzer in die Datenbank einzufügen
+
+#### 2.2.4 Pferd löschen  
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deletehorse | Name |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deletehorse | Franz |  
+
+Um ein Pferd aus der Datenbank zu löschen.  
+
+#### 2.2.5 Benutzer löschen
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Benutzername |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
+#### 2.2.6  Info Pferd
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Benutzername |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
+#### 2.2.7 Info Benutzer
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Benutzername |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
+#### 2.2.8 Pferd überarbeiten
+#### 2.2.9 Benutzer überarbeiten
+#### 2.2.10 Stop
+#### 2.2.11 status
+#### 2.2.12 start
+#### 2.2.13 get
 ## Fehler  
 
 | Code  | Funktion | beschreibung | Was passiert?|
