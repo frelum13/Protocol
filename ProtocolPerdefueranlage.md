@@ -41,3 +41,7 @@ Dieser String wird dann in json zusammengesetzt und versendet
 ### 2.3 Beispiele von Telegrammen  
 
 ## Fehler  
+
+| Code  | beschreibung |
+| ------------- |:-------------:|
+|err01 | Blabla | 
