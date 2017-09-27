@@ -22,7 +22,7 @@
 Beispiel:  
 | Anweisung  | Daten |
 | ------------- |:-------------:|
-|water | on |
+|water | on | 
   
 Dieser String wird dann in json zusammengesetzt und versendet
 
