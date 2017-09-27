@@ -113,18 +113,53 @@ Beispiel
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Benutzername |
+| infohorse | Name vom Pferd |  
+
+Antwort:
+| Anweisung  | Daten|
+|-------------|:-----:|
+| infohorse | Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |  
+
 
 Beispiel
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Lukas123 |  
+| infohorse |  Franz |  
 
 #### 2.2.7 Info Benutzer
 
 | Anweisung  | Daten|
 |-------------|:-----:|
+| infouser | Benutzername |
+
+Antwort:
+| Anweisung  | Daten|
+|-------------|:-----:|
+| infohorse | Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |  
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| infouser | Lukas123 |  
+
+#### 2.2.8 Pferd überarbeiten
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser |  Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
+#### 2.2.9 Benutzer überarbeiten
+
+| Anweisung  | Daten|
+|-------------|:-----:|
 | deleteuser | Benutzername |
 
 Beispiel
@@ -133,12 +168,54 @@ Beispiel
 |-------------|:-----:|
 | deleteuser | Lukas123 |  
 
-#### 2.2.8 Pferd überarbeiten
-#### 2.2.9 Benutzer überarbeiten
 #### 2.2.10 Stop
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Benutzername |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
 #### 2.2.11 status
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Benutzername |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
 #### 2.2.12 start
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Benutzername |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
 #### 2.2.13 get
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Benutzername |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| deleteuser | Lukas123 |  
+
 ## Fehler  
 
 | Code  | Funktion | beschreibung | Was passiert?|
