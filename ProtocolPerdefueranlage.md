@@ -175,7 +175,8 @@ Um alle Daten über das Pferd zu bekommen.
 |-------------|:-----:|
 | infouser | Benutzername |
 
-Antwort:
+Antwort:  
+
 | Anweisung  | Daten|
 |-------------|:-----:|
 | infouser | Vorname + Nachname + Benutzername + Passwort |  
@@ -215,6 +216,7 @@ Server erhaltet neue Daten von einem Pferd die in der Datenbank ausgetauscht wer
 | updateuser | Benutzername |  
 
 Antwort:  
+
 | Anweisung  | Daten|
 |-------------|:-----:|
 | updateuser | true/false |  
