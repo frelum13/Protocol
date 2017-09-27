@@ -17,11 +17,11 @@
 
 | Anweisung  | Daten |
 | ------------- |:-------------:|
-
+|Code | Daten |
 Beispiel:
-| Anweisung  | Daten |
-| ------------- |:-------------:|
-|water | on |
+| Anweisung  | Daten |  
+| ------------- |:-------------:|  
+|water | on |  
 
 Dieser String wird dann in json zusammengesetzt und versendet
 
