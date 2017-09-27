@@ -10,6 +10,8 @@
 3. Fehler  
 
 ## 1. Kommunikationsmanagment  
+Es ist ein Kommunikationsprotokoll auf TCP/IP. 
+
 
 ## 2. Telegram  
 
@@ -28,15 +30,24 @@ Beispiel:
 Dieser String wird dann in json zusammengesetzt und versendet
 
 ### 2.2 Funktionen  
-| Code  | Funktion | Beispiel |
-| ------------- |:-------------:|-----:|
-|water| Water on/off | Um das Wasser ein und aus zu schalten | 
+
+#### 2.2.1 Wasser an/aus
+| Anweisung  | Daten|
+| -------------|-----:|
+| 1 | 2|...|n|
+|water| Water on/off |   
+
+
+| new | Neues Pferd | Es wird ein neues Pferd in die Datenbank eingefügt |
+| registrate | Neuer Benutzer | Ein neuer Benutzer wird in die Datenbank eingefügt |
 | deletehorse | Pferd löschen | Um ein Pferd aus der Datenbank zu löschen |
 | deleteuser | Benutzer löschen | Um ein User aus der Datenbank zu löschen|
 | infohorse | Info Pferd | Schickt alle Datenbankeinträge über dieses Pferd an den Client|
 | infouser | Info Benutzer | Schickt alle Datenbankeinträge über diesen User an den Client|
 | updatehorse | Pferd überarbeiten | Bekommt Daten vom Client die in der Datenbank verändert werden sollen|
 | updateuser | Benutzer überarbeiten | Bekommt Daten vom Client die in der Datenbank verändert werden sollen|
+| stop | Maschiene stoppen | Stopt die Maschienen |
+| status | Abfrage ob alles passt | Es wird abgefragt ob der Server noch da ist und ob ein Fehler aufgetreten ist|
 
 
 ### 2.3 Beispiele von Telegrammen  
