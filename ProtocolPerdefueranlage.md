@@ -17,9 +17,14 @@
 
 | Anweisung  | Daten |
 | ------------- |:-------------:|
-| col 3 is      | right-aligned |
-| col 2 is      | centered      |
-| zebra stripes | are neat      |
+
+Beispiel:
+| Anweisung  | Daten |
+| ------------- |:-------------:|
+|water | on |
+
+Dieser String wird dann in json zusammengesetzt und versendet
+
 ### 2.2 Funktionen  
 | Code  | Funktion | Beispiel |
 | ------------- |:-------------:|-----:|
