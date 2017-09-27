@@ -33,9 +33,14 @@ Dieser String wird dann in json zusammengesetzt und versendet
 
 #### 2.2.1 Wasser an/aus
 | Anweisung  | Daten|
-| -------------|-----:|
-| 1 | 2|...|n|
-|water| Water on/off |   
+|-------------|:-----:|
+|water| Wasser on/off |
+
+Beispiel
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|water| on |
 
 
 | new | Neues Pferd | Es wird ein neues Pferd in die Datenbank eingefügt |
