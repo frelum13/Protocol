@@ -43,6 +43,6 @@ Dieser String wird dann in json zusammengesetzt und versendet
 
 ## Fehler  
 
-| Code  | beschreibung |
-| ------------- |:-------------:|
-|err01 | Blabla | 
+| Code  | Funktion | beschreibung |
+| ------------- |:-------------:|:-----:|
+|err01 | Timeout Error | Wenn ein Client oder der Server innerhalb des Timeouts keine Rücklmeldung mehr gibt kommt es zu einem Timeout Error| 
