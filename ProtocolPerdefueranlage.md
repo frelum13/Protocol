@@ -3,7 +3,9 @@
 ### Version: 1.0.5
 
 ## Zeitplan
-1. Kommunikationsmanagment  
+1. Kommunikationsmanagment 
+1.1 Zweck  
+1.2 Protocol Daten  
 2. Telegram  
 2.1 Allgemeine Form der Telegramme  
 2.2 Funktionen  
@@ -12,11 +14,23 @@
 2.2.3 Benutzer Registrieren  
 2.2.4 Pferd löschen  
 2.2.5 Benutzer löschen  
+2.2.6 Info Pferd  
+2.2.7 Info Benutzer  
+2.2.8 Pferd überarbeiten  
+2.2.9 Benutzer überarbeiten  
+2.2.10 Stop  
+2.2.11 Status  
+2.2.12 Start  
+2.2.13 Anlage  
 2.3 Beispiele von Telegrammen  
 3. Fehler  
 
 ## 1. Kommunikationsmanagment  
-Es ist ein Kommunikationsprotokoll auf TCP/IP. 
+### 1.1 Zweck
+Zweck dieses Protokolls ist es das eine Android App über TCP/IP mit einem Datenbankserver komunizieren kann. Ein zweiter Client kann auf den Datenbankserver zugreifen und die Daten abfragen die auf der Datenbank abgekegt sind um die Anlaga zu starten. Der Server und die Clients bleiben im regelmäßigen Kontakt. Das Timeout beträgt bei dieser Verbindung 100ms wird eine Ausgelößt bleibt die Anlage sofort stehen.
+
+### 1.2 Protocol Daten
+Es ist TCP/IP Protokoll was über das Ethernet funktioniert. Außerdem ist es ein Texorientiertes Zustandsloses Protokoll.
 
 
 ## 2. Telegram  
@@ -48,7 +62,7 @@ Antwort:
 |-------------|:-----:|
 |water| true/false |  
 
-Beispiel
+Beispiel:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
@@ -60,9 +74,15 @@ Die Anweisung ist dafür da um die Wassersprühanlage ein oder aus zu schalten.
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| new | Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |
+| new | Name + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen | 
 
-Beispiel
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|new | true/false | 
+
+Beispiel:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
@@ -74,22 +94,34 @@ Es ist dafür da um einen neues Pferd in die Datenbank zu schreiben
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| registrate | Vorname + Nachname + Benutzername + Passwort |
+| registrate | Vorname + Nachname + Benutzername + Passwort |  
 
-Beispiel
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|registrate| true/false | 
+
+Beispiel:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
 | registrate | Franz + 500 + 4 |
 
-Es ist dafür da um einen neuen Beutzer in die Datenbank einzufügen
+Es ist dafür da um einen neuen Beutzer in die Datenbank hinzuzufügen.
 
 #### 2.2.4 Pferd löschen  
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deletehorse | Name |
+| deletehorse | Name |  
 
-Beispiel
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|deletehorse| true/false | 
+
+Beispiel:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
@@ -101,13 +133,21 @@ Um ein Pferd aus der Datenbank zu löschen.
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Benutzername |
+| deleteuser | Benutzername |  
 
-Beispiel
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|registrate| true/false |
+
+Beispiel:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
 | deleteuser | Lukas123 |  
+
+Um einen Benutzer aus der Datenbank zu löschen.  
 
 #### 2.2.6  Info Pferd
 
@@ -116,16 +156,18 @@ Beispiel
 | infohorse | Name vom Pferd |  
 
 Antwort:
+
 | Anweisung  | Daten|
 |-------------|:-----:|
 | infohorse | Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |  
 
-
-Beispiel
+Beispiel:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
 | infohorse |  Franz |  
+
+Um alle Daten über das Pferd zu bekommen.  
 
 #### 2.2.7 Info Benutzer
 
@@ -136,85 +178,137 @@ Beispiel
 Antwort:
 | Anweisung  | Daten|
 |-------------|:-----:|
-| infohorse | Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |  
+| infouser | Vorname + Nachname + Benutzername + Passwort |  
 
-Beispiel
+Beispiel:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
 | infouser | Lukas123 |  
 
+Um alle Daten von einem Benutzer zu bekommen
+
 #### 2.2.8 Pferd überarbeiten
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser |  Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |
+| updateuser |  Name + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen |  
 
-Beispiel
+Antwort:  
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Lukas123 |  
+|updateuser| true/false |
+
+Beispiel:
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| updateuser | Lukas123 |  
+
+Server erhaltet neue Daten von einem Pferd die in der Datenbank ausgetauscht werden.
 
 #### 2.2.9 Benutzer überarbeiten
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Benutzername |
+| updateuser | Benutzername |  
 
-Beispiel
+Antwort:  
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Lukas123 |  
+|updateuser| true/false |  
+
+Beispiel:
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| updateuser | Lukas123 |  
+
+Server erhält neue Daten von einem Benutzer die in der Datenbank ausgetauscht werden.
 
 #### 2.2.10 Stop
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Benutzername |
+| stop | Art des stops |  
+
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|stop| true/false |  
+
+Beispiel:
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| stop | hardstop |  
+
+Die Anweisung ist dafür wie der Benutzer die Maschine Stoppen will (z.B. Notstop, Pausieren).
+
+Weitere Arten von Stopps:
+
+#### 2.2.11 Status
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| status |  |  
+
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|status | Fehler |  
+
+Beispiel:
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| status |  |  
+
+Die Anweisung ist dafür da, dass das Handy und der Server im Regelmäßigen Kontakt bleiben wenn igrgendein Fehler auftritt das der Benutzer reagieren kann.  
+
+#### 2.2.12 Start
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| start | Pferdename |  
+
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+|start | true/false |  
+
+Beispiel:
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| start | Franz |  
+
+Die Anweisung ist für den Anlagenstart da. Es wird der Name von dem schwächsten Pferd übergeben und die anlage dann auf das gestartet.  
+
+#### 2.2.13 Anlage
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| get | Fehler |  
+
+Antwort:  
+
+| Anweisung  | Daten|
+|-------------|:-----:|
+| get | Water(on/off) + Trainingszeit +  Anzahl der Drehrichtungsänderung|   
 
 Beispiel
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| deleteuser | Lukas123 |  
+| get | err01 |  
 
-#### 2.2.11 status
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Benutzername |
-
-Beispiel
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Lukas123 |  
-
-#### 2.2.12 start
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Benutzername |
-
-Beispiel
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Lukas123 |  
-
-#### 2.2.13 get
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Benutzername |
-
-Beispiel
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Lukas123 |  
+Die Anweisung ist dafür da um im stetigen Kontakt mit der Anlage zu sein, um die Anlage zu starten(wasser auch) und gegebenfalls Fehler von der Anlage abzufragen.  
 
 ## Fehler  
 
