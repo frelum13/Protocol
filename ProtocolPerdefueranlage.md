@@ -47,3 +47,4 @@ Dieser String wird dann in json zusammengesetzt und versendet
 | ------------- |:-------------:|:-----:|:--:|
 |err01 | Timeout Error | Wenn ein Client oder der Server innerhalb des Timeouts keine Rücklmeldung mehr gibt kommt es zu einem Timeout Error| Maschiene wird ausgeschalten |
 |err02 | Database not rechable | Datenbank kann nicht erreicht werden | Fehlermeldung an den Client |
+|err03 | Telegram Fehlerhaft | Das Telergramm vom Server/Client ist fehlerhaft | Der Fehler wird an den Client geschickt und es wird vom Sender verlangt es erneut zu senden |  
