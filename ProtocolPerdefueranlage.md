@@ -3,7 +3,7 @@
 ### Version: 1.0.5
 
 ## Zeitplan
-1. Kommunikationsmanagment 
+1. Kommunikationsmanagment  
 1.1 Zweck  
 1.2 Protocol Daten  
 2. Telegram  
