@@ -17,8 +17,8 @@
 
 | Anweisung  | Daten |
 | ------------- |:-------------:|
-|Code | Daten |
-Beispiel:
+|Code | Daten |  
+Beispiel:  
 | Anweisung  | Daten |  
 | ------------- |:-------------:|  
 |water | on |  
