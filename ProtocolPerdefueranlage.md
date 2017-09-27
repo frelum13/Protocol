@@ -45,5 +45,4 @@ Dieser String wird dann in json zusammengesetzt und versendet
 
 | Code  | Funktion | beschreibung | Was passiert?|
 | ------------- |:-------------:|:-----:||:--:|
-|err01 | Timeout Error | Wenn ein Client oder der Server innerhalb des Timeouts keine Rücklmeldung mehr gibt kommt es zu einem Timeout Error| Maschiene wird ausgeschalten |
-|err02 | Database not rechable | Datenbank kann nicht erreicht werden | Fehlermeldung an den Client |
+|err01 | Timeout Error | Wenn ein Client oder der Server innerhalb des Timeouts keine Rücklmeldung mehr gibt kommt es zu einem Timeout Error| Maschiene wird ausgeschalten ||err02 | Database not rechable | Datenbank kann nicht erreicht werden | Fehlermeldung an den Client |
