@@ -214,10 +214,10 @@ Server erhaltet neue Daten von einem Pferd die in der Datenbank ausgetauscht wer
 |-------------|:-----:|
 | updateuser | Benutzername |  
 
-Antwort:
+Antwort:  
 | Anweisung  | Daten|
 |-------------|:-----:|
-|updateuser| true/false |  
+| updateuser | true/false |  
 
 Beispiel:
 
