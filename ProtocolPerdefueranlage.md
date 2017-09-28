@@ -2,7 +2,7 @@
 ### Protocol Pferdefiueranlage
 ### Version: 1.0.5
 
-## Zeitplan
+## Inhaltsangabe
 1. Kommunikationsmanagment  
 1.1 Zweck  
 1.2 Protocol Daten  
@@ -11,7 +11,7 @@
 2.2 Funktionen  
 2.2.1 Wasser  
 2.2.2 Neues Pferd hinzufügen  
-2.2.3 Benutzer Registrieren  
+2.2.3 Benutzer registrieren  
 2.2.4 Pferd löschen  
 2.2.5 Benutzer löschen  
 2.2.6 Info Pferd  
@@ -27,7 +27,7 @@
 
 ## 1. Kommunikationsmanagment  
 ### 1.1 Zweck
-Zweck dieses Protokolls ist es das eine Android App über TCP/IP mit einem Datenbankserver komunizieren kann. Ein zweiter Client kann auf den Datenbankserver zugreifen und die Daten abfragen die auf der Datenbank abgekegt sind um die Anlaga zu starten. Der Server und die Clients bleiben im regelmäßigen Kontakt. Das Timeout beträgt bei dieser Verbindung 100ms wird eine Ausgelößt bleibt die Anlage sofort stehen.
+Zweck dieses Protokolls ist es, dass eine Android App über TCP/IP mit einem Datenbankserver kommunizieren kann. Ein zweiter Client, kann auf den Datenbankserver zugreifen und die Daten abfragen, die auf der Datenbank abgelegt sind, um die Anlaga zu starten. Der Server und die Clients bleiben im regelmäßigen Kontakt. Das Timeout beträgt bei dieser Verbindung 100ms, wird eine ausgelöst bleibt die Anlage sofort stehen.
 
 ### 1.2 Protocol Daten
 Es ist TCP/IP Protokoll was über das Ethernet funktioniert. Außerdem ist es ein Texorientiertes Zustandsloses Protokoll.
@@ -68,7 +68,7 @@ Beispiel:
 |-------------|:-----:|
 |water| on |
 
-Die Anweisung ist dafür da um die Wassersprühanlage ein oder aus zu schalten.  
+Die Anweisung ist dafür da, um die Wassersprühanlage ein oder auszuschalten.  
 
 #### 2.2.2 Neues Pferd hinzufügen
 
@@ -88,7 +88,7 @@ Beispiel:
 |-------------|:-----:|
 | new | Franz + 500 + 4 |  
 
-Es ist dafür da um einen neues Pferd in die Datenbank zu schreiben
+Sie ist dafür da, um ein neues Pferd in die Datenbank zu schreiben
 
 #### 2.2.3 Benutzer Registrieren
 
@@ -108,7 +108,7 @@ Beispiel:
 |-------------|:-----:|
 | registrate | Franz + 500 + 4 |
 
-Es ist dafür da um einen neuen Beutzer in die Datenbank hinzuzufügen.
+Sie ist dafür da, um einen neuen Beutzer in die Datenbank hinzuzufügen.
 
 #### 2.2.4 Pferd löschen  
 | Anweisung  | Daten|
@@ -127,7 +127,7 @@ Beispiel:
 |-------------|:-----:|
 | deletehorse | Franz |  
 
-Um ein Pferd aus der Datenbank zu löschen.  
+Die Anweisung ist dafür da, um ein Pferd aus der Datenbank zu löschen.  
 
 #### 2.2.5 Benutzer löschen
 
@@ -147,7 +147,7 @@ Beispiel:
 |-------------|:-----:|
 | deleteuser | Lukas123 |  
 
-Um einen Benutzer aus der Datenbank zu löschen.  
+Die Anweisung ist dafür da, um einen Benutzer aus der Datenbank zu löschen.  
 
 #### 2.2.6  Info Pferd
 
@@ -167,7 +167,7 @@ Beispiel:
 |-------------|:-----:|
 | infohorse |  Franz |  
 
-Um alle Daten über das Pferd zu bekommen.  
+Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.  
 
 #### 2.2.7 Info Benutzer
 
@@ -187,7 +187,7 @@ Beispiel:
 |-------------|:-----:|
 | infouser | Lukas123 |  
 
-Um alle Daten von einem Benutzer zu bekommen
+Die Anweisung ist dafür da, um alle Daten von einem Benutzer zu bekommen
 
 #### 2.2.8 Pferd überarbeiten
 
@@ -207,7 +207,7 @@ Beispiel:
 |-------------|:-----:|
 | updateuser | Lukas123 |  
 
-Server erhaltet neue Daten von einem Pferd die in der Datenbank ausgetauscht werden.
+Server erhält neue Daten von einem Pferd, die in der Datenbank ausgetauscht werden.
 
 #### 2.2.9 Benutzer überarbeiten
 
@@ -227,7 +227,7 @@ Beispiel:
 |-------------|:-----:|
 | updateuser | Lukas123 |  
 
-Server erhält neue Daten von einem Benutzer die in der Datenbank ausgetauscht werden.
+Server erhält neue Daten von einem Benutzer, die in der Datenbank ausgetauscht werden.
 
 #### 2.2.10 Stop
 
@@ -247,7 +247,7 @@ Beispiel:
 |-------------|:-----:|
 | stop | hardstop |  
 
-Die Anweisung ist dafür wie der Benutzer die Maschine Stoppen will (z.B. Notstop, Pausieren).
+Die Anweisung ist dafür, wie der Benutzer die Maschine stoppen kann (z.B. Notstop, pausieren).
 
 Weitere Arten von Stopps:
 
@@ -269,7 +269,7 @@ Beispiel:
 |-------------|:-----:|
 | status |  |  
 
-Die Anweisung ist dafür da, dass das Handy und der Server im Regelmäßigen Kontakt bleiben wenn igrgendein Fehler auftritt das der Benutzer reagieren kann.  
+Die Anweisung ist dafür da, dass das Handy und der Server im regelmäßigen Kontakt bleiben, wenn irgendein Fehler auftritt, dass der Benutzer reagieren kann.  
 
 #### 2.2.12 Start
 
@@ -289,7 +289,7 @@ Beispiel:
 |-------------|:-----:|
 | start | Franz |  
 
-Die Anweisung ist für den Anlagenstart da. Es wird der Name von dem schwächsten Pferd übergeben und die anlage dann auf das gestartet.  
+Die Anweisung ist für den Anlagenstart da. Es wird der Name des schwächsten Pferdes übergeben. Die Parameter der Anlage werden auf dieses Pferd eingestellt und gestartet.  
 
 #### 2.2.13 Anlage
 
@@ -309,7 +309,7 @@ Beispiel
 |-------------|:-----:|
 | get | err01 |  
 
-Die Anweisung ist dafür da um im stetigen Kontakt mit der Anlage zu sein, um die Anlage zu starten(wasser auch) und gegebenfalls Fehler von der Anlage abzufragen.  
+Die Anweisung ist dafür da um im stetigen Kontakt mit der Anlage zu sein, um die Anlage zu starten(Wasser auch) um gegebenfalls Fehler von der Anlage abzufragen.  
 
 ## Fehler  
 
@@ -317,4 +317,4 @@ Die Anweisung ist dafür da um im stetigen Kontakt mit der Anlage zu sein, um di
 | ------------- |:-------------:|:-----:|:--:|
 |err01 | Timeout Error | Wenn ein Client oder der Server innerhalb des Timeouts keine Rücklmeldung mehr gibt kommt es zu einem Timeout Error| Maschiene wird ausgeschalten |
 |err02 | Database not rechable | Datenbank kann nicht erreicht werden | Fehlermeldung an den Client |
-|err03 | Telegram Fehlerhaft | Das Telergramm vom Server/Client ist fehlerhaft | Der Fehler wird an den Client geschickt und es wird vom Sender verlangt es erneut zu senden |  
+|err03 | Telegram fehlerhaft | Das Telergramm vom Server/Client ist fehlerhaft | Der Fehler wird an den Client geschickt und es wird vom Sender verlangt, es erneut zu senden |  
