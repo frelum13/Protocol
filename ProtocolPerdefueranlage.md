@@ -101,9 +101,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"new","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
+{"anweisung":"registrate","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
 
-{"anweisung":"new","messages":["true"]} 
+{"anweisung":"registrate","messages":["true"]} 
 
 Sie ist dafür da, um einen neuen Beutzer in die Datenbank hinzuzufügen.
 
@@ -120,9 +120,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"new","messages":["Franz"]}
+{"anweisung":"deletehorse","messages":["Franz"]}
 
-{"anweisung":"new","messages":["true"]} 
+{"anweisung":"deletehorse","messages":["true"]} 
 
 Die Anweisung ist dafür da, um ein Pferd aus der Datenbank zu löschen.  
 
@@ -136,7 +136,7 @@ Antwort:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-|registrate| true/false |
+|deleteuser| true/false |
 
 Beispiel:
 
@@ -159,9 +159,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"new","messages":["Franz"]}
+{"anweisung":"infohorse","messages":["Franz"]}
 
-{"anweisung":"new","messages":["Franz","500","5"]} 
+{"anweisung":"infohorse","messages":["Franz","500","5"]} 
 
 Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.  
 
@@ -179,8 +179,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"new","messages":["Lukas17"]} 
-{"anweisung":"new","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
+{"anweisung":"infouser","messages":["Lukas17"]}
+
+{"anweisung":"infouser","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
 
 Die Anweisung ist dafür da, um alle Daten von einem Benutzer zu bekommen
 
@@ -188,19 +189,19 @@ Die Anweisung ist dafür da, um alle Daten von einem Benutzer zu bekommen
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| updateuser |  Pferdname + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen |  
+| updatehorse |  Pferdname + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen |  
 
 Antwort:  
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-|updateuser| true/false |
+|updatehorse| true/false |
 
 Beispiel:
 
-{"anweisung":"new","messages":["Franz","400","6"]} 
+{"anweisung":"updatehorse","messages":["Franz","400","6"]} 
 
-{"anweisung":"new","messages":["true"]} 
+{"anweisung":"updatehorse","messages":["true"]} 
 
 Server erhält neue Daten von einem Pferd, die in der Datenbank ausgetauscht werden.
 
@@ -218,9 +219,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"new","messages":["Hannes","Fritz","Lukas17","Schule2"]}
+{"anweisung":"updateuser","messages":["Hannes","Fritz","Lukas17","Schule2"]}
 
-{"anweisung":"new","messages":["true"]} 
+{"anweisung":"updateuser","messages":["true"]} 
 
 Server erhält neue Daten von einem Benutzer, die in der Datenbank ausgetauscht werden.
 
@@ -238,9 +239,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| stop | hardstop |  
+{"anweisung":"stop","messages":["hardstop"]} 
+
+{"anweisung":"stop","messages":["true"]} 
 
 Die Anweisung ist dafür, wie der Benutzer die Maschine stoppen kann (z.B. Notstop, pausieren).
 
@@ -260,9 +261,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| status |  |  
+{"anweisung":"status","messages":[" "]} 
+
+{"anweisung":"status","messages":["err02"]} 
 
 Die Anweisung ist dafür da, dass das Handy und der Server im regelmäßigen Kontakt bleiben, wenn irgendein Fehler auftritt, dass der Benutzer reagieren kann.  
 
@@ -280,9 +281,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| start | Franz |  
+{"anweisung":"start","messages":["Franz"]} 
+
+{"anweisung":"start","messages":["true"]} 
 
 Die Anweisung ist für den Anlagenstart da. Es wird der Name des schwächsten Pferdes übergeben. Die Parameter der Anlage werden auf dieses Pferd eingestellt und gestartet.  
 
@@ -296,13 +297,13 @@ Antwort:
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| get | Water(on/off) + Trainingszeit +  Anzahl der Drehrichtungsänderung|   
+| get | Stop + Water(on/off) + Trainingszeit +  Anzahl der Drehrichtungsänderung|   
 
 Beispiel
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| get | err01 |  
+{"anweisung":"get","messages":[" "]} 
+
+{"anweisung":"get","messages":["nothing","on","400","5"]} 
 
 Die Anweisung ist dafür da um im stetigen Kontakt mit der Anlage zu sein, um die Anlage zu starten(Wasser auch) um gegebenfalls Fehler von der Anlage abzufragen.  
 
