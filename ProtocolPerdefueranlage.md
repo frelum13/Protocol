@@ -33,6 +33,9 @@ Zweck dieses Protokolls ist es, dass eine Android App über TCP/IP mit einem Dat
 Es ist TCP/IP Protokoll was über das Ethernet funktioniert. Außerdem ist es ein Texorientiertes Zustandsloses Protokoll.
 
 
+C = Client
+S = Server
+
 ## 2. Telegram  
 
 ### 2.1 Allgemeine Form der Telegramme  
@@ -40,12 +43,14 @@ Es ist TCP/IP Protokoll was über das Ethernet funktioniert. Außerdem ist es ei
 | Anweisung  | Daten |
 | ------------- |:-------------:|
 |anweisung | Daten | 
+
+Dieser String wird dann in json zusammengesetzt und versendet
   
 Beispiel:  
 
 {"anweisung":"water","messages":["on"]}
   
-Dieser String wird dann in json zusammengesetzt und versendet
+
 
 ### 2.2 Funktionen  
 
@@ -62,9 +67,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"water","messages":["on"]}
+C: {"anweisung":"water","messages":["on"]}
 
-{"anweisung":"water","messages":["true"]}
+S: {"anweisung":"water","messages":["true"]}
 
 Die Anweisung ist dafür da, um die Wassersprühanlage ein oder auszuschalten.  
 
@@ -82,8 +87,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"new","messages":["Franz","500","5"]} 
-{"anweisung":"new","messages":["true"]} 
+C:{"anweisung":"new","messages":["Franz","500","5"]} 
+
+S: {"anweisung":"new","messages":["true"]} 
 
 Sie ist dafür da, um ein neues Pferd in die Datenbank zu schreiben
 
@@ -101,9 +107,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"registrate","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
+C:{"anweisung":"registrate","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
 
-{"anweisung":"registrate","messages":["true"]} 
+S: {"anweisung":"registrate","messages":["true"]} 
 
 Sie ist dafür da, um einen neuen Beutzer in die Datenbank hinzuzufügen.
 
@@ -120,9 +126,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"deletehorse","messages":["Franz"]}
+C: {"anweisung":"deletehorse","messages":["Franz"]}
 
-{"anweisung":"deletehorse","messages":["true"]} 
+S: {"anweisung":"deletehorse","messages":["true"]} 
 
 Die Anweisung ist dafür da, um ein Pferd aus der Datenbank zu löschen.  
 
@@ -140,8 +146,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"deleteuser","messages":["Lukas17"]} 
-{"anweisung":"deleteuser","messages":["true"]} 
+C: {"anweisung":"deleteuser","messages":["Lukas17"]}
+
+S: {"anweisung":"deleteuser","messages":["true"]} 
 
 Die Anweisung ist dafür da, um einen Benutzer aus der Datenbank zu löschen.  
 
@@ -159,9 +166,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"infohorse","messages":["Franz"]}
+C: {"anweisung":"infohorse","messages":["Franz"]}
 
-{"anweisung":"infohorse","messages":["Franz","500","5"]} 
+S: {"anweisung":"infohorse","messages":["Franz","500","5"]} 
 
 Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.  
 
@@ -179,9 +186,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"infouser","messages":["Lukas17"]}
+C: {"anweisung":"infouser","messages":["Lukas17"]}
 
-{"anweisung":"infouser","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
+S: {"anweisung":"infouser","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
 
 Die Anweisung ist dafür da, um alle Daten von einem Benutzer zu bekommen
 
@@ -199,9 +206,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"updatehorse","messages":["Franz","400","6"]} 
+C: {"anweisung":"updatehorse","messages":["Franz","400","6"]} 
 
-{"anweisung":"updatehorse","messages":["true"]} 
+S: {"anweisung":"updatehorse","messages":["true"]} 
 
 Server erhält neue Daten von einem Pferd, die in der Datenbank ausgetauscht werden.
 
@@ -219,9 +226,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"updateuser","messages":["Hannes","Fritz","Lukas17","Schule2"]}
+C: {"anweisung":"updateuser","messages":["Hannes","Fritz","Lukas17","Schule2"]}
 
-{"anweisung":"updateuser","messages":["true"]} 
+S: {"anweisung":"updateuser","messages":["true"]} 
 
 Server erhält neue Daten von einem Benutzer, die in der Datenbank ausgetauscht werden.
 
@@ -239,13 +246,15 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"stop","messages":["hardstop"]} 
+C: {"anweisung":"stop","messages":["hardstop"]} 
 
-{"anweisung":"stop","messages":["true"]} 
+S: {"anweisung":"stop","messages":["true"]} 
 
 Die Anweisung ist dafür, wie der Benutzer die Maschine stoppen kann (z.B. Notstop, pausieren).
 
 Weitere Arten von Stopps:
+
+werden noch genauer besprochen
 
 #### 2.2.11 Status
 
@@ -261,9 +270,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"status","messages":[" "]} 
+C: {"anweisung":"status","messages":[" "]} 
 
-{"anweisung":"status","messages":["err02"]} 
+S: {"anweisung":"status","messages":["err02"]} 
 
 Die Anweisung ist dafür da, dass das Handy und der Server im regelmäßigen Kontakt bleiben, wenn irgendein Fehler auftritt, dass der Benutzer reagieren kann.  
 
@@ -281,9 +290,9 @@ Antwort:
 
 Beispiel:
 
-{"anweisung":"start","messages":["Franz"]} 
+C: {"anweisung":"start","messages":["Franz"]} 
 
-{"anweisung":"start","messages":["true"]} 
+S: {"anweisung":"start","messages":["true"]} 
 
 Die Anweisung ist für den Anlagenstart da. Es wird der Name des schwächsten Pferdes übergeben. Die Parameter der Anlage werden auf dieses Pferd eingestellt und gestartet.  
 
@@ -301,9 +310,9 @@ Antwort:
 
 Beispiel
 
-{"anweisung":"get","messages":[" "]} 
+C: {"anweisung":"get","messages":[" "]} 
 
-{"anweisung":"get","messages":["nothing","on","400","5"]} 
+S: {"anweisung":"get","messages":["nothing","on","400","5"]} 
 
 Die Anweisung ist dafür da um im stetigen Kontakt mit der Anlage zu sein, um die Anlage zu starten(Wasser auch) um gegebenfalls Fehler von der Anlage abzufragen.  
 
