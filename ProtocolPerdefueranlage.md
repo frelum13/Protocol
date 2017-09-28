@@ -101,9 +101,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| registrate | Franz + 500 + 4 |
+{"anweisung":"new","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
+
+{"anweisung":"new","messages":["true"]} 
 
 Sie ist dafür da, um einen neuen Beutzer in die Datenbank hinzuzufügen.
 
@@ -120,9 +120,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deletehorse | Franz |  
+{"anweisung":"new","messages":["Franz"]}
+
+{"anweisung":"new","messages":["true"]} 
 
 Die Anweisung ist dafür da, um ein Pferd aus der Datenbank zu löschen.  
 
@@ -140,9 +140,8 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Lukas123 |  
+{"anweisung":"deleteuser","messages":["Lukas17"]} 
+{"anweisung":"deleteuser","messages":["true"]} 
 
 Die Anweisung ist dafür da, um einen Benutzer aus der Datenbank zu löschen.  
 
@@ -160,9 +159,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| infohorse |  Franz |  
+{"anweisung":"new","messages":["Franz"]}
+
+{"anweisung":"new","messages":["Franz","500","5"]} 
 
 Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.  
 
@@ -180,9 +179,8 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| infouser | Lukas123 |  
+{"anweisung":"new","messages":["Lukas17"]} 
+{"anweisung":"new","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
 
 Die Anweisung ist dafür da, um alle Daten von einem Benutzer zu bekommen
 
@@ -190,7 +188,7 @@ Die Anweisung ist dafür da, um alle Daten von einem Benutzer zu bekommen
 
 | Anweisung  | Daten|
 |-------------|:-----:|
-| updateuser |  Name + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen |  
+| updateuser |  Pferdname + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen |  
 
 Antwort:  
 
@@ -200,9 +198,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| updateuser | Lukas123 |  
+{"anweisung":"new","messages":["Franz","400","6"]} 
+
+{"anweisung":"new","messages":["true"]} 
 
 Server erhält neue Daten von einem Pferd, die in der Datenbank ausgetauscht werden.
 
@@ -220,9 +218,9 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| updateuser | Lukas123 |  
+{"anweisung":"new","messages":["Hannes","Fritz","Lukas17","Schule2"]}
+
+{"anweisung":"new","messages":["true"]} 
 
 Server erhält neue Daten von einem Benutzer, die in der Datenbank ausgetauscht werden.
 
