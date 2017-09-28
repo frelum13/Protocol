@@ -39,13 +39,11 @@ Es ist TCP/IP Protokoll was über das Ethernet funktioniert. Außerdem ist es ei
 
 | Anweisung  | Daten |
 | ------------- |:-------------:|
-|Code | Daten | 
+|anweisung | Daten | 
   
 Beispiel:  
 
-| Anweisung  | Daten |
-| ------------- |:-------------:|
-|water | on | 
+{"anweisung":"water","messages":["on"]}
   
 Dieser String wird dann in json zusammengesetzt und versendet
 
@@ -64,17 +62,17 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-|water| on |
+{"anweisung":"water","messages":["on"]}
+
+{"anweisung":"water","messages":["true"]}
 
 Die Anweisung ist dafür da, um die Wassersprühanlage ein oder auszuschalten.  
 
 #### 2.2.2 Neues Pferd hinzufügen
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| new | Name + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen | 
+| Anweisung  || Daten||
+|-------------|:-----:|--:|--:|
+| new | Pferdname | Trainigszeit(s) | Anzahl der Drehrichtungsänderungen | 
 
 Antwort:  
 
@@ -84,9 +82,8 @@ Antwort:
 
 Beispiel:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| new | Franz + 500 + 4 |  
+{"anweisung":"new","messages":["Franz","500","5"]} 
+{"anweisung":"new","messages":["true"]} 
 
 Sie ist dafür da, um ein neues Pferd in die Datenbank zu schreiben
 
