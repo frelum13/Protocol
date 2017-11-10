@@ -10,45 +10,41 @@
 2.1 Allgemeine Form der Telegramme  
 2.2 Funktionen  
 2.2.1 Wasser  
-2.2.2 Neues Pferd hinzufügen  
-2.2.3 Benutzer registrieren  
-2.2.4 Pferd löschen  
-2.2.5 Benutzer löschen  
-2.2.6 Info Pferd  
-2.2.7 Info Benutzer  
-2.2.8 Pferd überarbeiten  
-2.2.9 Benutzer überarbeiten  
-2.2.10 Stop  
-2.2.11 Status  
-2.2.12 Start  
-2.2.13 Anlage  
-2.3 Beispiele von Telegrammen  
+2.2.2 Neues Pferd hinzufügen    
+2.2.3 Pferd löschen    
+2.2.4 Info Pferd  
+2.2.5 Pferd überarbeiten   
+2.2.6 Stop  
+2.2.7 Start  
+2.2.8 Machine
+2.2.9 Login
+2.2.10 Version
 3. Fehler  
 
 ## 1. Kommunikationsmanagment  
 ### 1.1 Zweck
-Zweck dieses Protokolls ist es, dass eine Android App über TCP/IP mit einem Datenbankserver kommunizieren kann. Ein zweiter Client, kann auf den Datenbankserver zugreifen und die Daten abfragen, die auf der Datenbank abgelegt sind, um die Anlaga zu starten. Der Server und die Clients bleiben im regelmäßigen Kontakt. Das Timeout beträgt bei dieser Verbindung 100ms, wird eine ausgelöst bleibt die Anlage sofort stehen.
+Zweck dieses Protokolls ist es, dass eine Android App über TCP/IP mit einem Datenbankserver kommunizieren kann. Ein zweiter Client, kann auf den Datenbankserver zugreifen und die Daten abfragen, die auf der Datenbank abgelegt sind, um die Anlage zu starten. Der Server und die Clients bleiben im regelmäßigen Kontakt. Das Timeout beträgt bei dieser Verbindung 100ms, wird eine ausgelöst bleibt die Anlage sofort stehen.
 
 ### 1.2 Protocol Daten
-Es ist TCP/IP Protokoll was über das Ethernet funktioniert. Außerdem ist es ein Texorientiertes Zustandsloses Protokoll.
+Es ist ein Verbindungsorientiertes TCP/IP Protokoll was über das Ethernet funktioniert. Außerdem ist es ein Texorientiertes Zustandsloses Protokoll. Das Port über das dieses Protokoll komuniziert ist "1111".
 
 
-C = Client
+C = Client  
 S = Server
 
 ## 2. Telegram  
 
 ### 2.1 Allgemeine Form der Telegramme  
 
-| Anweisung  | Daten |
+| Command  | Daten |
 | ------------- |:-------------:|
-|anweisung | Daten | 
+|command | Daten | 
 
 Dieser String wird dann in json zusammengesetzt und versendet
   
 Beispiel:  
 
-{"anweisung":"water","messages":["on"]}
+{"command":"water","water":true}
   
 
 
@@ -57,7 +53,7 @@ Beispiel:
 #### 2.2.1 Wasser an/aus
 | Anweisung  | Daten|
 |-------------|:-----:|
-|water| Wasser on/off |  
+|water| Wasser true/false |  
 
 Antwort:
 
@@ -67,254 +63,198 @@ Antwort:
 
 Beispiel:
 
-C: {"anweisung":"water","messages":["on"]}
+C: {"anweisung":"water","water":true}
 
-S: {"anweisung":"water","messages":["true"]}
+S: {"anweisung":"water"}
 
 Die Anweisung ist dafür da, um die Wassersprühanlage ein oder auszuschalten.  
 
 #### 2.2.2 Neues Pferd hinzufügen
 
-| Anweisung  || Daten||
-|-------------|:-----:|--:|--:|
-| new | Pferdname | Trainigszeit(s) | Anzahl der Drehrichtungsänderungen | 
+| Command  |name | time| trunaround| speed|
+|-------------|:-----:|--:|--:|--:|
+| new | Pferdname | Trainigszeit(s) | Anzahl der Drehrichtungsänderungen | Geschwindigkeit|
 
 Antwort:  
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-|new | true/false | 
+| Command | 
+|-------------|
+|new | 
 
 Beispiel:
 
-C:{"anweisung":"new","messages":["Franz","500","5"]} 
+C: {"command":"new","name":"Franz","time":"500","turnaround":"5","speed":"5"} 
 
-S: {"anweisung":"new","messages":["true"]} 
+S: {"command":"new"}
 
 Sie ist dafür da, um ein neues Pferd in die Datenbank zu schreiben
 
-#### 2.2.3 Benutzer Registrieren
+#### 2.2.3  Pferd löschen
 
-| Anweisung  | Daten|
+| command  | Name|
 |-------------|:-----:|
-| registrate | Vorname + Nachname + Benutzername + Passwort |  
+| deletehorse | Name vom Pferd |  
 
-Antwort:  
+Antwort:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-|registrate| true/false | 
+| command |
+|-------------|
+| deletehorse |
 
 Beispiel:
 
-C:{"anweisung":"registrate","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
+C: {"command":"deletehorse","name":"Franz"}
 
-S: {"anweisung":"registrate","messages":["true"]} 
+S: {"command":"deletehorse"} 
 
-Sie ist dafür da, um einen neuen Beutzer in die Datenbank hinzuzufügen.
+Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.  
 
-#### 2.2.4 Pferd löschen  
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deletehorse | Name |  
+#### 2.2.4  Info Pferd
 
-Antwort:  
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-|deletehorse| true/false | 
-
-Beispiel:
-
-C: {"anweisung":"deletehorse","messages":["Franz"]}
-
-S: {"anweisung":"deletehorse","messages":["true"]} 
-
-Die Anweisung ist dafür da, um ein Pferd aus der Datenbank zu löschen.  
-
-#### 2.2.5 Benutzer löschen
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| deleteuser | Benutzername |  
-
-Antwort:  
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-|deleteuser| true/false |
-
-Beispiel:
-
-C: {"anweisung":"deleteuser","messages":["Lukas17"]}
-
-S: {"anweisung":"deleteuser","messages":["true"]} 
-
-Die Anweisung ist dafür da, um einen Benutzer aus der Datenbank zu löschen.  
-
-#### 2.2.6  Info Pferd
-
-| Anweisung  | Daten|
+| command  | Name|
 |-------------|:-----:|
 | infohorse | Name vom Pferd |  
 
 Antwort:
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| infohorse | Name + Traingszeit(s) + Anzahl der Drehrichtungsänderung |  
+| command | name| time | turnaround | speed |
+|-------------|:-----:|:---:|:---:|:---:|
+| infohorse | Name | Traingszeit(s) | Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
 
 Beispiel:
 
-C: {"anweisung":"infohorse","messages":["Franz"]}
+C: {"command":"infohorse","name":"Franz"}
 
-S: {"anweisung":"infohorse","messages":["Franz","500","5"]} 
+S: {"command":"infohorse","name":"Franz","time":"500","turnaround":"5","speed":"5"} 
 
 Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.  
 
-#### 2.2.7 Info Benutzer
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| infouser | Benutzername |
+#### 2.2.5 Pferd überarbeiten
 
-Antwort:  
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| infouser | Vorname + Nachname + Benutzername + Passwort |  
-
-Beispiel:
-
-C: {"anweisung":"infouser","messages":["Lukas17"]}
-
-S: {"anweisung":"infouser","messages":["Lukas","Freyler","Lukas17","Lukas123"]} 
-
-Die Anweisung ist dafür da, um alle Daten von einem Benutzer zu bekommen
-
-#### 2.2.8 Pferd überarbeiten
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| updatehorse |  Pferdname + Trainigszeit(s) + Anzahl der Drehrichtungsänderungen |  
+| command  | name | time | turnaround | speed |
+|-------------|:-----:|:---:|:---:|:---:|
+| updatehorse |  Pferdname | Trainigszeit(s) | Anzahl der Drehrichtungsänderungen |  Geschwindigkeit|
 
 Antwort:  
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-|updatehorse| true/false |
+| command  |
+|-----------|
+|updatehorse|
 
 Beispiel:
 
-C: {"anweisung":"updatehorse","messages":["Franz","400","6"]} 
+C: {"command":"updatehorse","name":"Franz","time":"500","turnaround":"5","speed":"5"} 
 
-S: {"anweisung":"updatehorse","messages":["true"]} 
+S: {"command":"updatehorse"} 
 
 Server erhält neue Daten von einem Pferd, die in der Datenbank ausgetauscht werden.
 
-#### 2.2.9 Benutzer überarbeiten
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| updateuser | Benutzername |  
+#### 2.2.6 Stop
 
-Antwort:  
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-| updateuser | true/false |  
-
-Beispiel:
-
-C: {"anweisung":"updateuser","messages":["Hannes","Fritz","Lukas17","Schule2"]}
-
-S: {"anweisung":"updateuser","messages":["true"]} 
-
-Server erhält neue Daten von einem Benutzer, die in der Datenbank ausgetauscht werden.
-
-#### 2.2.10 Stop
-
-| Anweisung  | Daten|
+| command | stop |
 |-------------|:-----:|
 | stop | Art des stops |  
 
 Antwort:  
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-|stop| true/false |  
+| command |
+|-------------|
+|  stop  | 
 
 Beispiel:
 
-C: {"anweisung":"stop","messages":["hardstop"]} 
+C: {"anweisung":"stop","stop":"stop"} 
 
-S: {"anweisung":"stop","messages":["true"]} 
+S: {"anweisung":"stop"} 
 
 Die Anweisung ist dafür, wie der Benutzer die Maschine stoppen kann (z.B. Notstop, pausieren).
 
 Weitere Arten von Stopps:
 
-werden noch genauer besprochen
+    - stop
+    - break
 
-#### 2.2.11 Status
+#### 2.2.7 Start
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| status |  |  
-
-Antwort:  
-
-| Anweisung  | Daten|
-|-------------|:-----:|
-|status | Fehler |  
-
-Beispiel:
-
-C: {"anweisung":"status","messages":[" "]} 
-
-S: {"anweisung":"status","messages":["err02"]} 
-
-Die Anweisung ist dafür da, dass das Handy und der Server im regelmäßigen Kontakt bleiben, wenn irgendein Fehler auftritt, dass der Benutzer reagieren kann.  
-
-#### 2.2.12 Start
-
-| Anweisung  | Daten|
+| command | name |
 |-------------|:-----:|
 | start | Pferdename |  
 
 Antwort:  
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-|start | true/false |  
+| Anweisung  |
+|-------------|
+|start | 
 
 Beispiel:
 
-C: {"anweisung":"start","messages":["Franz"]} 
+C: {"anweisung":"start","name":"Franz"} 
 
-S: {"anweisung":"start","messages":["true"]} 
+S: {"anweisung":"start"} 
 
 Die Anweisung ist für den Anlagenstart da. Es wird der Name des schwächsten Pferdes übergeben. Die Parameter der Anlage werden auf dieses Pferd eingestellt und gestartet.  
 
-#### 2.2.13 Anlage
+#### 2.2.8 Machine
 
-| Anweisung  | Daten|
+| command | errors|
 |-------------|:-----:|
 | get | Fehler |  
 
 Antwort:  
 
-| Anweisung  | Daten|
-|-------------|:-----:|
-| get | Stop + Water(on/off) + Trainingszeit +  Anzahl der Drehrichtungsänderung|   
+| Anweisung  | stop | water |name | time | turnaround | speed |
+|-------------|:-----:|:-:|:-:|:-:|:-:|:-:|
+| get | Stop | Water(on/off) | Pferdname |Trainingszeit |  Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
 
 Beispiel
 
-C: {"anweisung":"get","messages":[" "]} 
+C: {"command":"get","error":"er01"} 
 
-S: {"anweisung":"get","messages":["nothing","on","400","5"]} 
+S: {"command":"get","water":"nothing","water":"on","name":"Franz","time":"400","5"]} 
 
 Die Anweisung ist dafür da um im stetigen Kontakt mit der Anlage zu sein, um die Anlage zu starten(Wasser auch) um gegebenfalls Fehler von der Anlage abzufragen.  
+
+#### 2.2.9 Login
+
+| command |
+|---------|
+| login |
+
+Antwort:
+
+| command | Password |
+|-------------|:-:|
+| login | Passwort |
+
+Beispiel:  
+
+C: {"anweisung":"login"}
+
+S: {"anweisung":"login","password":"blabla"}
+
+Zum Anmelden
+
+#### 2.2.10 Version
+
+| command |
+|---------|
+| version |
+
+Antwort:
+
+| command | version |
+|-------------|:-:|
+| version | Version |
+
+Beispiel:  
+
+C: {"anweisung":"login"}
+
+S: {"anweisung":"login","password":"blabla"}
+
+Zum Anmelden
 
 ## Fehler  
 
