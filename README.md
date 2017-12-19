@@ -1,6 +1,6 @@
 # Protocol
-### Protocol Pferdefiueranlage
-### Version: 1.0.5
+### Protocol Pferdefueranlage
+### Version: 0.1.6
 
 ## Inhaltsangabe
 1. Kommunikationsmanagment  
@@ -19,6 +19,7 @@
 2.2.8 Machine
 2.2.9 Login
 2.2.10 Version
+2.2.11 Liste von Pferden
 3. Fehler  
 
 ## 1. Kommunikationsmanagment  
@@ -91,9 +92,9 @@ Sie ist dafür da, um ein neues Pferd in die Datenbank zu schreiben
 
 #### 2.2.3  Pferd löschen
 
-| command  | Name|
+| command  | id|
 |-------------|:-----:|
-| deletehorse | Name vom Pferd |  
+| deletehorse | id vom Pferd |  
 
 Antwort:
 
@@ -103,7 +104,7 @@ Antwort:
 
 Beispiel:
 
-C: {"command":"deletehorse","name":"Franz"}
+C: {"command":"deletehorse","id":"2"}
 
 S: {"command":"deletehorse"} 
 
@@ -111,30 +112,30 @@ Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.
 
 #### 2.2.4  Info Pferd
 
-| command  | Name|
+| command  | id |
 |-------------|:-----:|
-| infohorse | Name vom Pferd |  
+| infohorse | id vom Pferd |  
 
 Antwort:
 
-| command | name| time | turnaround | speed |
+| command | id |name| time | turnaround | speed |
 |-------------|:-----:|:---:|:---:|:---:|
-| infohorse | Name | Traingszeit(s) | Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
+| infohorse | id |Name | Traingszeit(s) | Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
 
 Beispiel:
 
-C: {"command":"infohorse","name":"Franz"}
+C: {"command":"infohorse","id":"1"}
 
-S: {"command":"infohorse","name":"Franz","time":"500","turnaround":"5","speed":"5"} 
+S: {"command":"infohorse","id":"1","name":"Franz","time":"500","turnaround":"5","speed":"5"} 
 
 Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.  
 
 
 #### 2.2.5 Pferd überarbeiten
 
-| command  | name | time | turnaround | speed |
+| command | id |name| time | turnaround | speed |
 |-------------|:-----:|:---:|:---:|:---:|
-| updatehorse |  Pferdname | Trainigszeit(s) | Anzahl der Drehrichtungsänderungen |  Geschwindigkeit|
+| infohorse | id |Name | Traingszeit(s) | Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
 
 Antwort:  
 
@@ -144,7 +145,7 @@ Antwort:
 
 Beispiel:
 
-C: {"command":"updatehorse","name":"Franz","time":"500","turnaround":"5","speed":"5"} 
+C: {"command":"updatehorse","id":"1","name":"Franz","time":"500","turnaround":"5","speed":"5"} 
 
 S: {"command":"updatehorse"} 
 
@@ -178,9 +179,9 @@ Weitere Arten von Stopps:
 
 #### 2.2.7 Start
 
-| command | name |
+| command | id |
 |-------------|:-----:|
-| start | Pferdename |  
+| start | Pferdeid |  
 
 Antwort:  
 
@@ -190,13 +191,13 @@ Antwort:
 
 Beispiel:
 
-C: {"anweisung":"start","name":"Franz"} 
+C: {"anweisung":"start","id":"1"} 
 
 S: {"anweisung":"start"} 
 
 Die Anweisung ist für den Anlagenstart da. Es wird der Name des schwächsten Pferdes übergeben. Die Parameter der Anlage werden auf dieses Pferd eingestellt und gestartet.  
 
-#### 2.2.8 Machine
+#### 2.2.8 Maschine
 
 | command | errors|
 |-------------|:-----:|
@@ -230,9 +231,9 @@ Antwort:
 
 Beispiel:  
 
-C: {"anweisung":"login"}
+C: {"command":"login"}
 
-S: {"anweisung":"login","password":"blabla"}
+S: {"command":"login","password":"blabla"}
 
 Zum Anmelden
 
@@ -250,11 +251,32 @@ Antwort:
 
 Beispiel:  
 
-C: {"anweisung":"login"}
+C: {"command":"version"}
 
-S: {"anweisung":"login","password":"blabla"}
+S: {"command":"login","password":"blabla"}
+
+Man bekommt die Version des Protokolls die ist zu überprüfen
+
+#### 2.2.11 Liste der Pferde
+
+| command |
+|---------|
+| all |
+
+Antwort:
+
+| command | names |
+|-------------|:-:|
+| all | Liste von Pferden |
+
+Beispiel:  
+
+C: {"command":"all"}
+
+S: {"command":"all","names":[{"id":"1","name":"Lukas"},{"id":"2","name":"Lisa"},{"id":"3","name":"allli"}]}
 
 Zum Anmelden
+
 
 ## Fehler  
 
