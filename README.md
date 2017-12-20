@@ -246,7 +246,7 @@ Zum Anmelden
 Antwort:
 
 | command | version |
-|-------------|:-:|
+|-------------|:-:|1
 | version | Version |
 
 Beispiel:  
