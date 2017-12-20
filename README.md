@@ -16,10 +16,10 @@
 2.2.5 Pferd überarbeiten   
 2.2.6 Stop  
 2.2.7 Start  
-2.2.8 Machine
-2.2.9 Login
-2.2.10 Version
-2.2.11 Liste von Pferden
+2.2.8 Machine  
+2.2.9 Login  
+2.2.10 Version  
+2.2.11 Liste von Pferden  
 3. Fehler  
 
 ## 1. Kommunikationsmanagment  
