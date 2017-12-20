@@ -119,7 +119,7 @@ Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.
 Antwort:
 
 | command | id |name| time | turnaround | speed |
-|-------------|:-----:|:---:|:---:|:---:|
+|-------------|:-----:|:---:|:---:|:---:|:---:|
 | infohorse | id |Name | Traingszeit(s) | Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
 
 Beispiel:
@@ -134,7 +134,7 @@ Die Anweisung ist dafür da, um alle Daten über das Pferd zu bekommen.
 #### 2.2.5 Pferd überarbeiten
 
 | command | id |name| time | turnaround | speed |
-|-------------|:-----:|:---:|:---:|:---:|
+|-------------|:-----:|:---:|:---:|:---:|:---:|
 | infohorse | id |Name | Traingszeit(s) | Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
 
 Antwort:  
@@ -205,9 +205,9 @@ Die Anweisung ist für den Anlagenstart da. Es wird der Name des schwächsten Pf
 
 Antwort:  
 
-| Anweisung  | stop | water |name | time | turnaround | speed |
-|-------------|:-----:|:-:|:-:|:-:|:-:|:-:|
-| get | Stop | Water(on/off) | Pferdname |Trainingszeit |  Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
+| Anweisung  | stop | water | time | turnaround | speed |
+|-------------|:-----:|:-:|:-:|:-:|:-:|
+| get | Stop | Water(on/off) | Trainingszeit |  Anzahl der Drehrichtungsänderung | Geschwindigkeit |  
 
 Beispiel
 
