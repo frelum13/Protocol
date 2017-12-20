@@ -16,10 +16,10 @@
 2.2.5 Pferd überarbeiten   
 2.2.6 Stop  
 2.2.7 Start  
-2.2.8 Machine
-2.2.9 Login
-2.2.10 Version
-2.2.11 Liste von Pferden
+2.2.8 Machine  
+2.2.9 Login  
+2.2.10 Version  
+2.2.11 Liste von Pferden  
 3. Fehler  
 
 ## 1. Kommunikationsmanagment  
@@ -253,7 +253,7 @@ Beispiel:
 
 C: {"command":"version"}
 
-S: {"command":"login","password":"blabla"}
+S: {"command":"version","version":"0.1.7"}
 
 Man bekommt die Version des Protokolls die ist zu überprüfen
 
@@ -275,7 +275,7 @@ C: {"command":"all"}
 
 S: {"command":"all","names":[{"id":"1","name":"Lukas"},{"id":"2","name":"Lisa"},{"id":"3","name":"allli"}]}
 
-Zum Anmelden
+Es wird eine Liste von allen in der Datenbank vorhandenen Pferden übergeben
 
 
 ## Fehler  
