@@ -275,7 +275,7 @@ C: {"command":"all"}
 
 S: {"command":"all","names":[{"id":"1","name":"Lukas"},{"id":"2","name":"Lisa"},{"id":"3","name":"allli"}]}
 
-Zum Anmelden
+Übergibt die Liste von allen in der Datenbankgespeicherten Pferden
 
 
 ## Fehler  
